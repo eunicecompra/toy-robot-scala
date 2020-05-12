@@ -1,10 +1,10 @@
-package com.toyrobot
+package com.toyrobot.command
 
 import com.toyrobot.model.Table
 
-case class Move()
+case class MoveCommand()
 
-object Move {
+object MoveCommand {
   def execute(table: Table): Table = {
     table.direction match {
       case "NORTH" => table.copy(y = table.y + 1)

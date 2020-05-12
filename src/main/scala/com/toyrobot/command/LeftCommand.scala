@@ -1,4 +1,4 @@
-package com.toyrobot
+package com.toyrobot.command
 
 import com.toyrobot.model.Table
 
