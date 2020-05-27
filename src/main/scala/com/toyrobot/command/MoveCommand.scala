@@ -2,7 +2,7 @@ package com.toyrobot.command
 
 import com.toyrobot.model.Table
 
-case class MoveCommand()
+case class MoveCommand() extends Command
 
 object MoveCommand {
   def execute(table: Table): Table = {

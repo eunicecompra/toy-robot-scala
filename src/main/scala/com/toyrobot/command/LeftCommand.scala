@@ -2,7 +2,7 @@ package com.toyrobot.command
 
 import com.toyrobot.model.Table
 
-case class LeftCommand()
+case class LeftCommand() extends Command
 
 object LeftCommand {
   def execute(table: Table): Table = {
