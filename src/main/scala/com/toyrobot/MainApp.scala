@@ -1,16 +1,27 @@
 package com.toyrobot
 
+import com.toyrobot.model.Table
+
 import scala.io.Source
 
-object MainApp extends App {
-  println("Playing with the Toy Robot")
-  val file = args(0)
-  println(s"Reading commands from $file")
+object MainApp {
 
-  val bufferedSource = Source.fromFile(file)
-  for (command <- bufferedSource.getLines) {
-    println(command)
+  def main(args: Array[String]): Unit = {
+    println("Playing with the Toy Robot")
+    val file = args(0)
+    println(s"Reading commands from $file")
+    play(file)
   }
 
-  bufferedSource.close()
+  def play(file: String): Table = {
+    val bufferedSource = Source.fromFile(file)
+
+    var table = Table(-1, -1, null)
+    for (command <- bufferedSource.getLines()) {
+      table = ToyRobot.executeCommand(command, table)
+    }
+    bufferedSource.close()
+
+    table
+  }
 }

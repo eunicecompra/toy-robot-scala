@@ -1,6 +1,6 @@
 package com.toyrobot
 
-import com.toyrobot.command.{LeftCommand, MoveCommand, PlaceCommand, RightCommand}
+import com.toyrobot.command.{LeftCommand, MoveCommand, PlaceCommand, ReportCommand, RightCommand}
 import com.toyrobot.model.Table
 
 object ToyRobot {
@@ -15,6 +15,7 @@ object ToyRobot {
           case "MOVE" => MoveCommand.execute(table)
           case "LEFT" => LeftCommand.execute(table)
           case "RIGHT" => RightCommand.execute(table)
+          case "REPORT" => ReportCommand.execute(table)
         }
       }
   }
