@@ -25,6 +25,11 @@ class ToyRobotSpec extends Specification {
         Table(0, 1, "WEST"))
       table ==== Table(0, 1, "NORTH")
     }
+    "Execute Report command" >> {
+      val table = ToyRobot.executeCommand("REPORT",
+        Table(0, 1, "WEST"))
+      table ==== Table(0, 1, "WEST")
+    }
   }
 
 }
