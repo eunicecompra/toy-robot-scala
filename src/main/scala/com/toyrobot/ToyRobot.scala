@@ -4,20 +4,22 @@ import com.toyrobot.command.{LeftCommand, MoveCommand, PlaceCommand, RightComman
 import com.toyrobot.model.Table
 
 object ToyRobot {
-  def processCommands(commands: List[String], t: Table): Table = {
-    def execute(table:Table, command: String): Table = {
-      command.split(" ")(0) match {
-        case "PLACE" => PlaceCommand.execute(table, command)
+  def executeCommand(command: String, table: Table): Table = {
+      command match {
+        case placeRegEx => PlaceCommand.execute(table, command)
         case "MOVE" => MoveCommand.execute(table)
         case "LEFT" => LeftCommand.execute(table)
         case "RIGHT" => RightCommand.execute(table)
-        case _ => null
       }
-    }
-    (for {
-      c <- commands
-      table: Table = execute(t, c)
-    } yield table).last
   }
+
+ val placeRegEx =
+    "^\\d,\\d," +
+      "(" +
+        "\\bNORTH\\b" +
+        "|\\bSOUTH\\b" +
+        "|\\bEAST\\b" +
+        "|\\bWEST\\b" +
+      ")"
 
 }

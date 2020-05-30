@@ -5,11 +5,10 @@ import org.specs2.mutable.Specification
 
 class ToyRobotSpec extends Specification {
   "Toy Robot" >> {
-    "Process commands" >> {
-      val table = ToyRobot.processCommands(
-                    List("PLACE 0,0,NORTH", "MOVE", "LEFT", "RIGHT"),
+    "Execute Place command" >> {
+      val table = ToyRobot.executeCommand("PLACE 0,0,NORTH",
                     Table(-1, -1, null))
-      table ==== Table(0, 1, "NORTH")
+      table ==== Table(0, 0, "NORTH")
     }
   }
 
