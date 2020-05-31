@@ -2,7 +2,7 @@ package com.toyrobot.command
 
 import com.toyrobot.model.Table
 
-case class PlaceCommand()
+case class PlaceCommand() extends Command
 
 object PlaceCommand {
   def execute(table: Table, command: String): Table = {
