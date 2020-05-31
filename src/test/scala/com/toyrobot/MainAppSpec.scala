@@ -5,9 +5,12 @@ import org.specs2.mutable.Specification
 
 class MainAppSpec extends Specification {
   "MainApp" >> {
-    "Toy robot commands test" >> {
-      val table = MainApp.play("src/test/resources/commands.txt")
-      table ==== Table(3, 3, "NORTH")
+    "Main app test" >> {
+      MainApp.main(Array("src/test/resources/commands.txt"))
+      true
+    }
+    "Toy robot commands from file test" >> {
+      MainApp.play("src/test/resources/commands.txt") ==== Table(3, 3, "NORTH")
     }
   }
 

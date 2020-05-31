@@ -7,7 +7,7 @@ object ToyRobot {
   val placeRegEx =
     "PLACE \\d,\\d,(\\bNORTH\\b|\\bSOUTH\\b|\\bEAST\\b|\\bWEST\\b)".r
 
-  def executeCommand(command: String, table: Table): Table = {
+  def executeCommand(table: Table, command: String): Table = {
       if (placeRegEx.matches(command)) {
         PlaceCommand.execute(table, command)
       } else {
