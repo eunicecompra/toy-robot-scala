@@ -20,6 +20,18 @@ class ToyRobotSpec extends Specification {
     "Execute Report command" >> {
       ToyRobot.executeCommand(Table(0, 1, "WEST"), "REPORT") ==== Table(0, 1, "WEST")
     }
+    "Execute Invalid Command" >> {
+      ToyRobot.executeCommand(Table(-1, -1, null), "JUMP") ==== Table(-1, -1, null)
+    }
+    "Execute Invalid Move command" >> {
+      ToyRobot.executeCommand(Table(0, 0, "SOUTH"),"MOVE") ==== Table(0, 0, "SOUTH")
+    }
+    "Execute Invalid Place command" >> {
+      ToyRobot.executeCommand(Table(-1, -1, null),"PLACE 4 4") ==== Table(-1, -1, null)
+    }
+    "Execute Invalid Place out of table command" >> {
+      ToyRobot.executeCommand(Table(0, 0, "EAST"),"PLACE 5,4,EAST") ==== Table(0, 0, "EAST")
+    }
   }
 
 }
